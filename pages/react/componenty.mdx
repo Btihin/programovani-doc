@@ -1,0 +1,35 @@
+# Komponenty
+
+import MyApp from '../../components/counters';
+
+Tvorba komponent v reactu.
+
+```tsx showLineNumbers {10-12} copy filename="Citac.tsx"
+function MojeTlacitko() {
+  const [pocet, setPocet] = useState(0);
+
+  function handleClick() {
+    setPocet(pocet + 1);
+  }
+
+  return (
+    <div>
+      <button onClick={handleClick} className={styles.counter}>
+        Kliknuto {pocet} krát.
+      </button>
+    </div>
+  );
+}
+```
+
+použití
+
+```tsx copy
+export default function MojeAplikace() {
+  return <MojeTlacitko />;
+}
+```
+
+Výyledek
+
+<MyApp />

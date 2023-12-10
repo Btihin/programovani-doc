@@ -1,15 +1,14 @@
 {
-  "index": "Introduction",
+  "index": "Začátek",
   "another": "Another Page",
   "advanced": "Advanced (A Folder)",
   "about": {
-    "title": "About",
+    "title": "O projektu",
     "type": "page"
   },
   "contact": {
-    "title": "Contact ↗",
+    "title": "Kontakt ↗",
     "type": "page",
-    "href": "https://twitter.com/shuding_",
-    "newWindow": true
+    "href": "contact"
   }
 }
