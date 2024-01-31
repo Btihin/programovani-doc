@@ -1,7 +1,6 @@
 import { Callout } from 'nextra/components';
 import { useState } from 'react';
 import styles from './prevodnik.module.css';
-import { parse } from 'next/dist/build/swc';
 
 export interface IPrevodItem {
   original: string;
