@@ -1,4 +1,3 @@
-import { Callout } from 'nextra/components';
 import { useState } from 'react';
 import styles from './prevodnik.module.css';
 
@@ -18,10 +17,15 @@ export default function Prevodnik() {
   };
 
   const handleProhodit = () => {
-    let raw = hodnoty.split('\n');
-    const prohozenePole = raw.map((item) => prohodit(item));
-    console.log('prohozene', prohozenePole);
-    setVysledek(prohozenePole);
+    if (hodnoty === undefined) {
+      setChyba('Zadejte hodnoty');
+    } else {
+      setChyba(() => '');
+      let raw = hodnoty.split('\n');
+      const prohozenePole = raw.map((item) => prohodit(item));
+      console.log('prohozene', prohozenePole);
+      setVysledek(prohozenePole);
+    }
   };
 
   function prohodit(item): IPrevodItem {
@@ -62,9 +66,7 @@ export default function Prevodnik() {
         Today is Friday.
       </Callout> */}
       {chyba && (
-        <Callout type='error' emoji='❗'>
-          Chyba v položce: {chyba}
-        </Callout>
+        <div className={styles.calloutError}> ❗ Chyba v položce: {chyba}</div>
       )}
       <div className={styles.divContainer}>
         <div className={styles.divFlexNula}>
