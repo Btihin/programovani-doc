@@ -8,7 +8,6 @@
   },
   "contact": {
     "title": "Kontakt ↗",
-    "type": "page",
-    "href": "contact"
+    "type": "page"
   }
 }

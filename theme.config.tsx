@@ -7,11 +7,11 @@ const config: DocsThemeConfig = {
     link: 'https://github.com/Btihin/programovani-doc/',
   },
   chat: {
-    link: 'https://discord.com',
+    link: 'https://discordapp.com/users/400651427078471690',
   },
   docsRepositoryBase: 'https://github.com/Btihin/programovani-doc/',
   footer: {
-    text: 'Nextra Docs Template',
+    text: <span>Pro sebe - Biti - 2023</span>,
   },
 };
 
