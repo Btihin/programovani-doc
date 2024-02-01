@@ -4,6 +4,12 @@
     justify-content: space-between;
 }
 
+.divCol {
+    display: flex;
+    flex-direction: column;
+}
+
+
 .divFlexJedna {
 flex-grow: 1;
 }
