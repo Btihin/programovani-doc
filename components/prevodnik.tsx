@@ -5,7 +5,7 @@ import { log } from 'console';
 export interface IPrevodItem {
   original: string;
   mixovany: string;
-  desitkovy: number;
+  desitkovy: string;
 }
 
 type Variant = variant.ORIGINAL | variant.MIXOVANY | variant.DESITKOVY;
@@ -48,12 +48,16 @@ export default function Prevodnik() {
       let tri = bezNul.substring(4, 6);
       let ctyri = bezNul.substring(6, 8);
       let novy = ctyri + tri + dva + jedna;
-      let novyDesitkovy = parseInt(novy, 16);
+      // console.log('prvni znak', novy[0]);
+      // console.log('prvni znak', typeof novy);
+
+      let novyDesitkovy =
+        'Z' + (novy[0] === '0' ? '0' : '') + parseInt(novy, 16).toString();
 
       return { original: item, mixovany: novy, desitkovy: novyDesitkovy };
     } else {
       setChyba((prev) => prev + ' item: ' + item);
-      return { original: item, mixovany: '', desitkovy: 0 };
+      return { original: 'Chybovy ' + item, mixovany: 'xx', desitkovy: '' };
     }
   }
 
@@ -63,7 +67,7 @@ export default function Prevodnik() {
     setVysledek([]);
   };
 
-  const handleCopy = (hodnota: string[]) => {
+  const handleCopy = (hodnota: string) => {
     // let vybraneHodnoty = '';
     // if (desitky) {
     //     vybraneHodnoty = vysledek.filter()
@@ -78,20 +82,22 @@ export default function Prevodnik() {
     let kopirovany = [];
     let text = '';
     if (props.typ === variant.ORIGINAL) {
-      kopirovany = vysledek.filter((f) => f.original);
+      kopirovany = vysledek.map((f) => f.original);
       text = props.typ;
     }
     if (props.typ === variant.MIXOVANY) {
-      kopirovany = vysledek.filter((f) => f.mixovany);
+      kopirovany = vysledek.map((f) => f.mixovany);
       text = 'original';
     }
-    if (props.typ === variant.ORIGINAL) {
-      kopirovany = vysledek.filter((f) => f.desitkovy);
+    if (props.typ === variant.DESITKOVY) {
+      kopirovany = vysledek.map((f) => f.desitkovy);
       text = 'original';
     }
+    console.log(kopirovany);
+    let novyText = kopirovany.join('\n');
     return (
       <div>
-        <button className={styles.btn} onClick={() => handleCopy(kopirovany)}>
+        <button className={styles.btn} onClick={() => handleCopy(novyText)}>
           Kopírovat {props.typ}
         </button>
       </div>
