@@ -1,6 +1,7 @@
+'use client';
+
 import { FC, useState } from 'react';
 import styles from './prevodnik.module.css';
-import { log } from 'console';
 
 export interface IPrevodItem {
   original: string;

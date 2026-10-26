@@ -1,0 +1,13 @@
+export default {
+  index: 'Začátek',
+  another: 'Another Page',
+  advanced: 'Advanced (A Folder)',
+  about: {
+    title: 'O projektu',
+    type: 'page',
+  },
+  contact: {
+    title: 'Kontakt ↗',
+    type: 'page',
+  },
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import MyApp from '../components/counters';
+import MyApp from './counters';
 
 const JedenTest = () => {
   return (
